@@ -17,7 +17,7 @@ public class ItemRepository {
         if(item.getId() == null){ //처음 등록할 때 id값이 없음
             em.persist(item);
         }else{
-            em.merge(item);
+            em.merge(item);//가급적이면 merge보다는 변경감지로 로직을 구성하는게 안전함 (null도 merge를 해버리니까)
         }
     }
 
